@@ -8,3 +8,38 @@
 ```javascript
 const arr = [1,2,3];
 filter(arr, function(item, i, arr) {}); */
+
+
+//Решение:
+const arr = [1, 2, 3];
+
+function filter(arr, cb) {
+  if (!Array.isArray(arr)) {
+    throw new Error('arr type should be an array');
+  };
+if (typeof cb !== 'function') {
+    throw new Error('cb type should be a function');
+  };
+
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++){
+    if (cb(arr[i], i, arr) !== false) {
+      newArr.push(arr[i]);
+    };
+  };
+
+  return newArr;
+};
+
+function cb(item, i, arr) {
+  if (item < 3) {                       
+    console.log(item, i, arr);
+    return item, i, arr
+  }
+  return false;
+}
+
+const result = filter(arr, cb);
+
+console.log(result);

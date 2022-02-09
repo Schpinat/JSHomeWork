@@ -14,3 +14,9 @@ console.log( arrLength ); // 4,5,2,3
 Перепишите выделенный участок:
 
 - используйте вместо цикла `for` метод `map` */
+
+var arr = ['abcd', 'abcde', 'ab', 'abc'];
+
+let arrLength = arr.map(item => { return item.length });
+
+console.log(arrLength);

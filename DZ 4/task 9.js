@@ -7,3 +7,17 @@
 
 ```javascript
 arrayFill('x',5); // [x,x,x,x,x] */
+
+
+function arrayFill(elem, newLen) {
+    if (typeof elem !== 'number' && typeof elem !== 'string' && typeof elem !== 'object') {
+          throw new Error('arr type should be an number, string or object');
+        }
+    
+      let arr = [];
+      arr.length = newLen;
+      
+      return arr.fill(elem);
+    }
+    
+    console.log(arrayFill('x', 5));

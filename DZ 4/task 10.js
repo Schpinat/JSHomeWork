@@ -8,3 +8,22 @@
 ```javascript
 const arr = [3,2,1];
 reverse(arr); // [1,2,3] */
+
+function f(arr) {
+    if (!Array.isArray(arr)) {
+      throw new Error('arr type should be an array');
+    };
+    if (arr.length === 0) {
+      throw new Error('arr length should be more than zero');
+    };
+  
+    let newArr = [];
+  
+    for (let i = arr.length - 1; i >= 0; i--) {
+      newArr.push(arr[i])
+    };
+  
+    return newArr;
+  };
+  
+  console.log(f([1,2,3,4,5]));

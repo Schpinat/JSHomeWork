@@ -19,3 +19,32 @@ f(arr4); // 0
 const arr5 = [[[[[],3]]]];
 f(arr5); // 3
 ``` */
+
+function f(arr) {
+    if (!Array.isArray(arr)) {
+      throw new Error('arr type should be an array');
+    };
+    const newArr = arr.flat(Infinity);
+  
+    newArr.forEach(item => {
+      if (typeof item !== 'number') {
+        throw new Error('arr should contain only numbers');
+      }
+    });
+  
+    if (newArr.length === 0) {
+      return 0;
+      }
+  
+    const result = newArr.reduce((acc, item) => {
+      return acc += item;
+    }, 0);
+  
+    return result;
+  };
+  
+  console.log(f([[[1, 2], [1, 2]], [[2, 1], [1, 2]]]));
+  console.log(f([[[[[1,2]]]]]));
+  console.log(f([[[[[1,2]]],2],1]));
+  console.log(f([[[[[]]]]]));
+  console.log(f([[[[[],3]]]]));
